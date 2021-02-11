@@ -23,44 +23,46 @@ rawArr, headers = getRawData('comicBookCharData_mixed.csv')
 # headers is a variable that holds the list of all the column headers.
 
 
-def quickSort(list, firstIndex, lastIndex):
+def quickSort(LIST, FIRST_INDEX, LAST_INDEX):
     """
-    Uses a pivot value to recursively sort the list provided
-    :param list: Unsorted list
-    :param firstIndex: Left-most index value
-    :param lastIndex: Right most index value
-    :return: Sorted List
+    Uses a pivot value to recursively sort through the list.
+    :param LIST: UNSORTED LIST
+    :param FIRST_INDEX: Left-most index value
+    :param LAST_INDEX: Right-most index value
+    :return:
     """
 
-    if firstIndex < lastIndex:
-        pivotValue = list[firstIndex]
-        leftIndex = firstIndex + 1
-        rightIndex = lastIndex
+    if FIRST_INDEX < LAST_INDEX:
 
-        done = False
+        PIVOT_VALUE = LIST[FIRST_INDEX]
+        LEFT_INDEX = FIRST_INDEX + 1
+        RIGHT_INDEX = LAST_INDEX
 
-        while not done:
-            while leftIndex <= rightIndex and list[leftIndex] <= pivotValue:
-                leftIndex = leftIndex + 1
-            while rightIndex >= leftIndex and list[rightIndex] >= pivotValue:
-                rightIndex = rightIndex - 1
-            if rightIndex < leftIndex:
-                done = True
+        DONE = False
+
+        while not DONE:
+            while LEFT_INDEX <= RIGHT_INDEX and LIST[LEFT_INDEX] <= PIVOT_VALUE:
+                LEFT_INDEX = LEFT_INDEX + 1
+            while RIGHT_INDEX >= LEFT_INDEX and LIST[RIGHT_INDEX] >= PIVOT_VALUE:
+                RIGHT_INDEX = RIGHT_INDEX - 1
+            if RIGHT_INDEX < LEFT_INDEX:
+                DONE = True
             else:
-                temp = list[leftIndex]
-                list[leftIndex] = list[rightIndex]
-                list[rightIndex] = temp
-        temp = list[firstIndex]  # Pivot value
-        list[firstIndex] = list[rightIndex]
-        list[rightIndex] = temp
+                TEMP = LIST[LEFT_INDEX]
+                LIST[LEFT_INDEX] = LIST[RIGHT_INDEX]
+                LIST[RIGHT_INDEX] = TEMP
 
-        # Recursive part below
-        quickSort(list, firstIndex, rightIndex - 1)  # Traverses through left branch
-        quickSort(list, rightIndex + 1, lastIndex)  # Traverses through right branch
+        TEMP = LIST[FIRST_INDEX]  # PIVOT VALUE
+        LIST[FIRST_INDEX] = LIST[RIGHT_INDEX]
+        LIST[RIGHT_INDEX] = TEMP
+
+        # Recursive part
+        quickSort(LIST, FIRST_INDEX, RIGHT_INDEX - 1)  # Continues down left branch
+        quickSort(LIST, RIGHT_INDEX + 1, LAST_INDEX)  # Continues down right branch
 
 
 # Main program code
 if __name__ == "__main__":
-    numbers = rawArr
-    print(numbers)
-    print(quickSort(numbers, 0, len(numbers) - 1))
+    print(rawArr)
+    sortedArr = quickSort(rawArr, 0, len(rawArr) - 1)
+    print(sortedArr)
