@@ -43,27 +43,16 @@ def insertionSort(LIST):
     return LIST
 
 
-def binarySearch(LIST_SORTED, VALUE):
-    """
-    Searches through the data to find the value
-    :param LIST_SORTED: SORTED list of integer
-    :param VALUE: VALUE that is being searched
-    :return: INDEX NUMBER
+def linearSearch():
     """
 
-    START = 0
-    END = len(LIST_SORTED) - 1
-
-    while START <= END:
-        MIDPOINT = (START + END) // 2  # floor divide to preserve an integer value
-        print(MIDPOINT)
-
-        if LIST_SORTED[MIDPOINT] == VALUE:
-            return MIDPOINT
-        elif VALUE > LIST_SORTED[MIDPOINT]:
-            START = MIDPOINT + 1
-        else:
-            END = MIDPOINT - 1
+    :return:
+    """
+    for row in SORTED_NUMBERS:
+        if row[0] == INPUT_VALUE:
+            for i in range(11):
+                print(headers[i] + ": " + row[i])
+                i = i + 1
 
 
 # Test
@@ -74,18 +63,10 @@ if __name__ == "__main__":
         NUMBERS = rawArr
         SORTED_NUMBERS = (insertionSort(NUMBERS))
         INPUT_VALUE = input("What is the character ID?")
-        for row in SORTED_NUMBERS:
-            if row[0] == INPUT_VALUE:
-                for i in range(11):
-                    print(headers[i] + ": " + row[i])
-                    i = i + 1
+        linearSearch()
 
         again = input("Do you want to search again?(y/N)")
         if again == "y":
             pass
         else:
             Running = False
-
-
-
-
