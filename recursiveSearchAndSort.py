@@ -61,8 +61,29 @@ def quickSort(LIST, FIRST_INDEX, LAST_INDEX):
         quickSort(LIST, RIGHT_INDEX + 1, LAST_INDEX)  # Continues down right branch
 
 
+def recursiveBinarySearch(LIST, VALUE):
+    MIDPOINT = len(LIST) // 2
+    if LIST[MIDPOINT] == VALUE:
+        # BASE CASE
+        return MIDPOINT
+    else:
+        if VALUE < LIST[MIDPOINT]:
+            return recursiveBinarySearch(LIST[:MIDPOINT], VALUE)
+        else:
+            return recursiveBinarySearch(LIST[MIDPOINT + 1:], VALUE)
+
+
 # Main program code
 if __name__ == "__main__":
-    print(rawArr)
-    sortedArr = quickSort(rawArr, 0, len(rawArr) - 1)
-    print(sortedArr)
+    Running = True
+    while Running:
+        NUMBERS = rawArr
+        SORTED_NUMBERS = quickSort(NUMBERS, 0, len(NUMBERS) -1)
+        INPUT_VALUE = input("What is the character ID?")
+        # recursiveBinarySearch(SORTED_NUMBERS, )
+
+        again = input("Do you want to search again?(y/N)")
+        if again == "y":
+            pass
+        else:
+            Running = False
