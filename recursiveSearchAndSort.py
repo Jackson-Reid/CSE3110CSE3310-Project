@@ -63,14 +63,14 @@ def quickSort(LIST, FIRST_INDEX, LAST_INDEX):
 
 def recursiveBinarySearch(LIST, VALUE):
     MIDPOINT = len(LIST) // 2
-    if LIST[MIDPOINT] == VALUE:
+    if LIST[MIDPOINT[0]] == VALUE:
         # BASE CASE
         return MIDPOINT
     else:
-        if VALUE < LIST[MIDPOINT]:
-            return recursiveBinarySearch(LIST[:MIDPOINT], VALUE)
+        if VALUE < LIST[MIDPOINT[0]][0]:
+            return recursiveBinarySearch(LIST[:MIDPOINT[0]], VALUE)
         else:
-            return recursiveBinarySearch(LIST[MIDPOINT + 1:], VALUE)
+            return recursiveBinarySearch(LIST[MIDPOINT[0] + 1:], VALUE)
 
 
 # Main program code
