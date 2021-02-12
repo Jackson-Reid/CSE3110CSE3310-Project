@@ -81,10 +81,7 @@ if __name__ == "__main__":
         quickSort(NUMBERS, 0, len(NUMBERS) - 1)
         INPUT_VALUE = input("What is the character ID?")
 
-        for row in NUMBERS:
-            print([NUMBERS].index(row[0]))
-
-        # recursiveBinarySearch(SORTED_NUMBERS, )
+        recursiveBinarySearch(NUMBERS, INPUT_VALUE[1:])
 
         again = input("Do you want to search again?(y/N)")
         if again == "y":
