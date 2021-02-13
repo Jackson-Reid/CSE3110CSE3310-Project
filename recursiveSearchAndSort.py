@@ -92,10 +92,11 @@ if __name__ == "__main__":
                 break
         if not RETURN:
             print("Error: Invalid entry")
-        recursiveBinarySearch(NUMBERS, INPUT_VALUE)
-
-        again = input("Do you want to search again?(y/N)")
-        if again == "y":
-            pass
         else:
-            Running = False
+            recursiveBinarySearch(NUMBERS, INPUT_VALUE)
+
+            again = input("Do you want to search again?(y/N)")
+            if again == "y":
+                pass
+            else:
+                Running = False
