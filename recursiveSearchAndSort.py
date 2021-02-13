@@ -63,14 +63,18 @@ def quickSort(LIST, FIRST_INDEX, LAST_INDEX):
 
 def recursiveBinarySearch(LIST, VALUE):
     MIDPOINT = len(LIST) // 2
-    if LIST[MIDPOINT[0]] == VALUE:
-        # BASE CASE
-        return MIDPOINT
+    for row in NUMBERS:
+        if row[0] == VALUE:
+            # BASE CASE
+            for i in range(11):
+                print(headers[i] + ": " + row[i])
+                i = i + 1
+            return MIDPOINT
     else:
-        if VALUE < LIST[MIDPOINT[0]][0]:
-            return recursiveBinarySearch(LIST[:MIDPOINT[0]], VALUE)
+        if VALUE < LIST[MIDPOINT]:
+            return recursiveBinarySearch(LIST[:MIDPOINT], VALUE)
         else:
-            return recursiveBinarySearch(LIST[MIDPOINT[0] + 1:], VALUE)
+            return recursiveBinarySearch(LIST[MIDPOINT + 1:], VALUE)
 
 
 # Main program code
@@ -80,8 +84,15 @@ if __name__ == "__main__":
         NUMBERS = rawArr
         quickSort(NUMBERS, 0, len(NUMBERS) - 1)
         INPUT_VALUE = input("What is the character ID?")
-
-        recursiveBinarySearch(NUMBERS, INPUT_VALUE[1:])
+        for row in NUMBERS:
+            if row[0] != INPUT_VALUE:
+                RETURN = False
+            else:
+                RETURN = True
+                break
+        if not RETURN:
+            print("Error: Invalid entry")
+        recursiveBinarySearch(NUMBERS, INPUT_VALUE)
 
         again = input("Do you want to search again?(y/N)")
         if again == "y":
