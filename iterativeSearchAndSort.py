@@ -43,10 +43,10 @@ def insertionSort(LIST):
     return LIST
 
 
-
-def linearSearch():
+def linearSearch(INPUT_VALUE):
     """
 
+    :param INPUT_VALUE:
     :return:
     """
     for row in SORTED_NUMBERS:
@@ -56,6 +56,7 @@ def linearSearch():
             for i in range(11):
                 print(headers[i] + ": " + row[i])
                 i = i + 1
+    return INPUT_VALUE
 
 
 # Test
@@ -74,7 +75,7 @@ if __name__ == "__main__":
                 RETURN = True
                 break
 
-        linearSearch()
+        linearSearch(INPUT_VALUE)
         if not RETURN:
             print("Error: Invalid entry")
 
